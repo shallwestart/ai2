@@ -4,17 +4,17 @@ import axios from "axios";
 import {useState} from "react";
 export default function Home() {
 
-  const { answer, setAnswer } = useState("")
-  const{ isloading, setIsloading} = useState(false)
+  const [ answer, setAnswer ] = useState("")
+  const [isloading, setIsloading] = useState(false)
 
 
    async function note(event){
     event.preventDefault();
     setIsloading(true);
 
-    const character = event.target.name.value;
-    const animal = event.target.age.value;
-    const style = event.target.topic.value;
+    const character = event.target.character.value;
+    const animal = event.target.animal.value;
+    const style = event.target.style.value;
 
     const response = await axios.post("/api/create-image", {
       character,

@@ -2,7 +2,7 @@
 import Replicate from "replicate";
 
 const replicate = new Replicate({
-  auth: process.env.REPLICATE_API_TOKEN,
+  auth:process.env.REPLICATE_API_TOKEN,
 });
 
 export async function POST(req) {
@@ -15,7 +15,7 @@ export async function POST(req) {
       input: {
         width: 768,
         height: 768,
-        prompt: `An astronaut riding a rainbow unicorn, cinematic, dramatic. In the style of ${style}`,
+        prompt: `An ${character} riding a ${animal}, cinematic, dramatic. In the style of ${style}`,
         refine: "expert_ensemble_refiner",
         scheduler: "K_EULER",
         lora_scale: 0.6,
@@ -30,10 +30,10 @@ export async function POST(req) {
     }
   );
   console.log(output);
-  
+
   return Response.json({
     status: "ok",
-    answer:output[0],
+    answer: output[0],
   });
 
 
